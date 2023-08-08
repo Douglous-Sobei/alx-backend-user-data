@@ -24,3 +24,15 @@ def stats() -> str:
     stats = {}
     stats['users'] = User.count()
     return jsonify(stats)
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden_endpoint() -> str:
+    """ GET /api/v1/forbidden
+    Raise a 403 error using abort
+    """
+    abort(403)
+
+
+if __name__ == '__main__':
+    pass
+
